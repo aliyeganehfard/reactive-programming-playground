@@ -3,12 +3,11 @@ package com.reactive.sec01.subscriber;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-
-import java.util.logging.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SubscriberImpl implements Subscriber<String> {
 
-    private static final Logger log = Logger.getLogger(SubscriberImpl.class.getName());
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(SubscriberImpl.class);
 
     private Subscription subscription;
 
@@ -28,7 +27,7 @@ public class SubscriberImpl implements Subscriber<String> {
 
     @Override
     public void onError(Throwable throwable) {
-        log.severe("error:" + throwable);
+        log.error("error:{}", String.valueOf(throwable));
     }
 
     @Override
