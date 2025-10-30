@@ -9,7 +9,7 @@ public class DefaultSubscriber<T> implements Subscriber<T> {
 
     private static final org.slf4j.Logger log = LoggerFactory.getLogger(DefaultSubscriber.class);
 
-    private String name;
+    private final String name;
 
     public DefaultSubscriber(String name) {
         this.name = name;
