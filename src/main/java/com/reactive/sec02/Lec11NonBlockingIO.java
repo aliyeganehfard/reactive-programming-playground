@@ -15,7 +15,7 @@ public class Lec11NonBlockingIO {
 
         long nonBlockingStartInMillis = System.nanoTime();
 
-        for (int i = 1; i <= 50; i++) {
+        for (int i = 1; i <= 100; i++) {
             client.getProductName(i)
                     .subscribe(Util.subscriber());
         }
@@ -24,7 +24,7 @@ public class Lec11NonBlockingIO {
 
         long syncStartAsMillis = System.nanoTime();
 
-        for (int i = 1; i <= 50; i++) {
+        for (int i = 1; i <= 5; i++) {
             var name = client.getProductNameSyncBlocking(i);
             log.info("Product name: {}", name);
         }
