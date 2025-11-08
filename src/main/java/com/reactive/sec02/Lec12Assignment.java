@@ -11,10 +11,15 @@ public class Lec12Assignment {
         fileService.write("file.txt", "Hello World")
                 .subscribe(Util.subscriber());
 
-        fileService.read("file.txt")
-                .subscribe(Util.subscriber());
-
-        fileService.delete("file.txt")
-                .subscribe(Util.subscriber());
+        for (int i = 0; i < 10000; i++) {
+            fileService.write("file.txt", String.format("hello %d", i))
+                    .subscribe(Util.subscriber());
+        }
+//
+//        fileService.read("file.txt")
+//                .subscribe(Util.subscriber());
+//
+//        fileService.delete("file.txt")
+//                .subscribe(Util.subscriber());
     }
 }
