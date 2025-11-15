@@ -4,6 +4,8 @@ import com.github.javafaker.Faker;
 import org.reactivestreams.Subscriber;
 import reactor.core.publisher.Mono;
 
+import java.time.Duration;
+
 public class Util {
 
     private static final Faker faker = Faker.instance();
@@ -23,6 +25,14 @@ public class Util {
     public static void sleepSeconds(long seconds) {
         try {
             Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void sleep(Duration duration) {
+        try {
+            Thread.sleep(duration.toMillis());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
