@@ -2,17 +2,17 @@ package com.reactive.sec09;
 
 import com.reactive.common.Util;
 import com.reactive.sec09.client.ExternalServiceClient09;
+import reactor.core.publisher.Flux;
 
-public class Lec08ZipAssignment {
+public class Lec13ConcatMap {
     public static void main(String[] args) {
-
         var client = new ExternalServiceClient09();
 
-        for (int i = 1; i <= 100 ; i++) {
-            client.getProduct(i)
-                    .subscribe(Util.subscriber());
-        }
+        Flux.range(1,10)
+                .concatMap(client::getProduct)
+                .subscribe(Util.subscriber());
 
-        Util.sleepSeconds(10);
+        Util.sleepSeconds(13);
     }
+
 }
