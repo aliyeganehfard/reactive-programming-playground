@@ -44,4 +44,12 @@ public class Lec04RangeTest {
                 .verify();
     }
 
+    @Test
+    public void rangeTest4() {
+        StepVerifier.create(getRandomItems())
+                .thenConsumeWhile(i -> i > 0 && i < 101)
+                .expectComplete()
+                .verify();
+    }
+
 }
